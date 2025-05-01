@@ -1,0 +1,73 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:UI.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="600" Height="600"
+        x:Class="UI.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/icon.ico"
+        Title="Chess"
+        Background="black">
+
+    
+    <!-- my code here -->
+    
+    <Viewbox>
+        <Grid x:Name="BoardGrid"
+              Width="600"
+              Height="600">
+            <!-- set the background -->
+            <Image Source="avares://UI/Assets/BrownBoard.png"
+                   Stretch="UniformToFill"/>
+            
+            <!-- create a grid for the pieces -->
+            <UniformGrid x:Name="PiecesGrid"
+                         Rows="8"
+                         Columns="8">
+                <Image Source="avares://UI/Assets/RookB.png"/>
+                <Image Source="avares://UI/Assets/KnightB.png"/>
+                <Image Source="avares://UI/Assets/BishopB.png"/>
+                <Image Source="avares://UI/Assets/QueenB.png"/>
+                <Image Source="avares://UI/Assets/KingB.png"/>
+                <Image Source="avares://UI/Assets/BishopB.png"/>
+                <Image Source="avares://UI/Assets/KnightB.png"/>
+                <Image Source="avares://UI/Assets/RookB.png"/>
+                
+                <Image Source="avares://UI/Assets/PawnB.png"/>
+                <Image Source="avares://UI/Assets/PawnB.png"/>
+                <Image Source="avares://UI/Assets/PawnB.png"/>
+                <Image Source="avares://UI/Assets/PawnB.png"/>
+                <Image Source="avares://UI/Assets/PawnB.png"/>
+                <Image Source="avares://UI/Assets/PawnB.png"/>
+                <Image Source="avares://UI/Assets/PawnB.png"/>
+                <Image Source="avares://UI/Assets/PawnB.png"/>
+                
+                <Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/>
+                <Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/>
+                <Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/>
+                <Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/><Rectangle/>
+                
+                <Image Source="avares://UI/Assets/PawnW.png"/>
+                <Image Source="avares://UI/Assets/PawnW.png"/>
+                <Image Source="avares://UI/Assets/PawnW.png"/>
+                <Image Source="avares://UI/Assets/PawnW.png"/>
+                <Image Source="avares://UI/Assets/PawnW.png"/>
+                <Image Source="avares://UI/Assets/PawnW.png"/>
+                <Image Source="avares://UI/Assets/PawnW.png"/>
+                <Image Source="avares://UI/Assets/PawnW.png"/>
+                
+                <Image Source="avares://UI/Assets/RookW.png"/>
+                <Image Source="avares://UI/Assets/KnightW.png"/>
+                <Image Source="avares://UI/Assets/BishopW.png"/>
+                <Image Source="avares://UI/Assets/QueenW.png"/>
+                <Image Source="avares://UI/Assets/KingW.png"/>
+                <Image Source="avares://UI/Assets/BishopW.png"/>
+                <Image Source="avares://UI/Assets/KnightW.png"/>
+                <Image Source="avares://UI/Assets/RookW.png"/>
+            </UniformGrid>
+        </Grid>
+    </Viewbox>
+    
+
+</Window>

@@ -12,7 +12,7 @@ A fully-featured chess application built to provide a portable, accessible chess
 2. [Features](#features)  
 3. [FEN Integration](#fen-integration)  
 4. [Game Rules Support](#game-rules-support)  
-5. [Optional Enhancements](#optional-enhancements)  
+5. [Planned Features](#optional-enhancements)  
 6. [Getting Started](#getting-started)  
 7. [License](#license)
 
@@ -94,7 +94,7 @@ Example Draw FEN (Insufficient Material):
 
 ---
 
-## Optional Enhancements
+## Planned Features
 
 The following features are planned to be immplemented:
 

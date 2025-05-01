@@ -117,7 +117,7 @@ The following features are planned to be immplemented:
 
 ```bash
 git clone https://github.com/hrBloomfield/Chess-CourseWork
-cd UI
+cd Chess-CourseWork/UI
 dotnet run
 ```
 

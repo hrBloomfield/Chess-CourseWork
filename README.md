@@ -1,6 +1,6 @@
 # Chess Engine
 
-**Harry Bloomfield – 6055**
+**Harry Bloomfield**
 
 A fully-featured chess application built to provide a portable, accessible chess experience — whether you're playing casually with a friend or training solo against a bot.
 

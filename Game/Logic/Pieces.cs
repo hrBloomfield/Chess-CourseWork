@@ -11,7 +11,7 @@ namespace Game.Logic
         public const int rook = 5;
         public const int king = 6;
 
-        public const int white = 8;
-        public const int black = 16;
+        public const int white = 1;
+        public const int black = -1;
     }
 }

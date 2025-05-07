@@ -18,7 +18,7 @@
               Width="600"
               Height="600">
             <!-- set the background -->
-            <Image Source="avares://UI/Assets/BrownBoard.png"
+            <Image Source="avares://UI/Assets/RedBoard.png"
                    Stretch="UniformToFill"/>
             
             <!-- create a grid for the pieces -->

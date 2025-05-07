@@ -4,6 +4,7 @@ namespace Game.Logic
     {
         // move values
         
+        
         //straight movements
         protected static readonly int moveUp = 8;
         protected static readonly int moveDown = -8;

@@ -1,5 +1,8 @@
-﻿namespace UI.ViewModels;
+﻿using Avalonia.Interactivity;
 
-public partial class MainWindowViewModel : ViewModelBase
+namespace UI.ViewModels;
+
+public partial class MainWindow : ViewModelBase
 {
 }
+

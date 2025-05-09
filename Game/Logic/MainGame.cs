@@ -13,7 +13,8 @@ public class MainGame
         string startFEN = basicSetUp;
         
         FenLoader.readFENandLoad(startFEN, newBoard);
-
+        
+        Console.Clear();
         // TEMPOARY
         for (int rank = 7; rank >= 0; rank--)
         {

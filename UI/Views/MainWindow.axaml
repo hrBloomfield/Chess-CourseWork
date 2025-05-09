@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" Width="600" Height="600"
         x:Class="UI.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
+        x:DataType="vm:MainWindow"
         Icon="/Assets/icon.ico"
         Title="Chess"
         Background="black">
@@ -18,8 +18,11 @@
               Width="600"
               Height="600">
             <!-- set the background -->
-            <Image Source="avares://UI/Assets/RedBoard.png"
+            <Image Source="avares://UI/Assets/SoftWoodBoard.png"
                    Stretch="UniformToFill"/>
+            
+            
+
             
             <!-- create a grid for the pieces -->
             <UniformGrid x:Name="PiecesGrid"
@@ -66,6 +69,7 @@
                 <Image Source="avares://UI/Assets/KnightW.png"/>
                 <Image Source="avares://UI/Assets/RookW.png"/>
             </UniformGrid>
+            
         </Grid>
     </Viewbox>
     

@@ -1,4 +1,5 @@
 # Chess Engine
+# still in proccesss not finished
 
 **Harry Bloomfield**
 

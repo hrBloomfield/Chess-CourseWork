@@ -1,7 +1,7 @@
 namespace Game.Logic
 {
     // sets values for pieces allowing them to be uniquely identified ie white pawn = 9
-    public static class Piece
+    public static class Pieces
     {
         public const int noPiece = 0;
         public const int pawn = 1;

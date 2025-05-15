@@ -22,7 +22,15 @@
                    Stretch="UniformToFill"/>
             
             
-
+            <!-- create a grid for highlighting -->
+            
+            <UniformGrid x:Name="HighlightGrid"
+                         Rows="8"
+                         Columns="8">
+                <Image Source="avares://UI/Assets/legalMoves.png"/>
+                <Image Source="avares://UI/Assets/legalMoves.png"/>
+                <Image Source="avares://UI/Assets/legalMoves.png"/>
+            </UniformGrid>
             
             <!-- create a grid for the pieces -->
             <UniformGrid x:Name="PiecesGrid"
@@ -69,7 +77,6 @@
                 <Image Source="avares://UI/Assets/KnightW.png"/>
                 <Image Source="avares://UI/Assets/RookW.png"/>
             </UniformGrid>
-            
         </Grid>
     </Viewbox>
     

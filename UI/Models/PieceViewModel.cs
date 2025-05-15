@@ -5,7 +5,6 @@ public class PieceViewModel
 {
     private string PieceCodeToImage(int code)
     {
-        // Example mapping
         return code switch
         {
             1 => "PawnW.png",

@@ -9,8 +9,8 @@ namespace Game.Logic
         {
             var pieceTypeForFEN = new Dictionary<char, int>()
             {
-                ['k'] = Piece.king, ['q'] = Piece.queen, ['b'] = Piece.bishop,
-                ['r'] = Piece.rook, ['n'] = Piece.knight, ['p'] = Piece.pawn
+                ['k'] = Pieces.king, ['q'] = Pieces.queen, ['b'] = Pieces.bishop,
+                ['r'] = Pieces.rook, ['n'] = Pieces.knight, ['p'] = Pieces.pawn
             };
 
             string fenBoard = fen.Split(' ')[0];
@@ -23,7 +23,7 @@ namespace Game.Logic
 
                 if (currentFenDigit == '/')
                 {
-                    file = Piece.noPiece;
+                    file = Pieces.noPiece;
                     rank--;
                 }
                 else if (char.IsDigit(currentFenDigit))
@@ -35,7 +35,7 @@ namespace Game.Logic
 
                     int pieceColour;
                     int piece;
-                    pieceColour = char.IsUpper(currentFenDigit) ? Piece.white : Piece.black;
+                    pieceColour = char.IsUpper(currentFenDigit) ? Pieces.white : Pieces.black;
                     piece = pieceTypeForFEN[char.ToLower(currentFenDigit)];
                     
                     int squareIndex = rank * 8 + file;

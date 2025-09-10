@@ -83,11 +83,18 @@ namespace Game.Logic
             EnPassant,
             DoubleMove
         }
-        public class moveInfo(int currentPos, int targetPos, MoveType moveType)
+        public class moveInfo
         {
-            public int from = currentPos;
-            public int to = targetPos;
-            public MoveType moveType = moveType;
+            public int from;
+            public int to;
+            public MoveType moveType;
+
+            public moveInfo(int from, int to, MoveType moveType)
+            {
+                this.from = from;
+                this.to = to;
+                this.moveType = moveType;
+            }
         }
         
     }

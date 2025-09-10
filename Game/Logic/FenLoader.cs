@@ -5,9 +5,9 @@ namespace Game.Logic
 {
     public static class FenLoader
     {
-        public static void readFENandLoad(string fen, Board board)
+        public static void ReadFenAndLoad(string fen, Board board)
         {
-            var pieceTypeForFEN = new Dictionary<char, int>()
+            var pieceTypeForFen = new Dictionary<char, int>()
             {
                 ['k'] = Pieces.king, ['q'] = Pieces.queen, ['b'] = Pieces.bishop,
                 ['r'] = Pieces.rook, ['n'] = Pieces.knight, ['p'] = Pieces.pawn
@@ -36,7 +36,7 @@ namespace Game.Logic
                     int pieceColour;
                     int piece;
                     pieceColour = char.IsUpper(currentFenDigit) ? Pieces.white : Pieces.black;
-                    piece = pieceTypeForFEN[char.ToLower(currentFenDigit)];
+                    piece = pieceTypeForFen[char.ToLower(currentFenDigit)];
                     
                     int squareIndex = rank * 8 + file;
                     board.gameBoard[squareIndex] = piece * pieceColour;

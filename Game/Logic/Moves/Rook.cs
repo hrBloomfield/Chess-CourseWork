@@ -15,117 +15,56 @@ namespace Game.Logic
 
         void generateLegalMoves(int[] board, int currentPos)
         {
-            int direction = isRookWhite ? moveUp : moveDown;
-            int sideDirection = isRookWhite ? moveRight : moveLeft;
-            int startRank = isRookWhite ? 1 : 6;
-            
-            bool noPiecesInWay = true;
-            int forwardOne = currentPos + direction;
-            int backwardsOne = currentPos - direction;
-            int sideOne = currentPos + moveRight;
-            int otherSideOne = currentPos + moveLeft;
-            
+            legalMoves.Clear();
+            int[] directions = { moveUp, moveDown, moveRight, moveLeft };
+
             bool IsOpponentPiece(int piece)
             {
-                return isRookWhite ? piece < 0 : piece > 0;
-            }
-            int i = 0;
-            
-            // checks forward moves till a piece is in front and if the piece is yours it wotn let capture
-            while (noPiecesInWay == true)
-            {
-                if (board[forwardOne + i] == Pieces.noPiece)
-                {
-                    legalMoves.Add(new moveInfo(currentPos, forwardOne + i, MoveType.Normal));
-                    i += direction;
-                }
-                else
-                {
-                    if (IsOpponentPiece(board[sideOne + i]) == true)
-                    {
-                        legalMoves.Add(new moveInfo(currentPos, forwardOne + i, MoveType.Capture));
-                    }
-                    noPiecesInWay = false;
-                    i = 0;
-                }
-                
+                return isRookWhite ? piece < Pieces.noPiece : piece > Pieces.noPiece;
             }
             
-            noPiecesInWay = true;
-            
-            // checks for side moves with the same taking mechanism
-            while (noPiecesInWay == true)
+            bool loop = true;
+            while (loop)
             {
-                if (board[sideOne + i] == Pieces.noPiece)
+                foreach (int dir in directions)
                 {
-                    legalMoves.Add(new moveInfo(currentPos, sideOne + i, MoveType.Normal));
-                    i += sideDirection;
-                }
-                else
-                {
-                    if (IsOpponentPiece(board[sideOne + i]) == true)
+                    int pos = currentPos + dir;
+                    int piece = board[pos];
+                    if (piece == Pieces.noPiece)
                     {
-                        legalMoves.Add(new moveInfo(currentPos, sideOne + i, MoveType.Capture));
+                        legalMoves.Add(new moveInfo(currentPos, pos, MoveType.Normal));
+                        pos += dir;
                     }
-                    noPiecesInWay = false;
-                    i = 0;
-                }
-            }
-            noPiecesInWay = true;
-            
-            // checks for side moves with the same taking mechanism
-            // due to me having no way of knowiung if the piece is black or white
-            // movign right and left dont apply as they dont have any form of direction
-            // so i have gone with neutral variable names such as side on and otheer side one
-            while (noPiecesInWay == true)
-            {
-                if (board[otherSideOne + i] == Pieces.noPiece)
-                {
-                    legalMoves.Add(new moveInfo(currentPos, otherSideOne + i, MoveType.Normal));
-                    i += sideDirection;
-                }
-                else
-                {
-                    if (IsOpponentPiece(board[otherSideOne + i]) == true)
+                    else
                     {
-                        legalMoves.Add(new moveInfo(currentPos, otherSideOne + i, MoveType.Capture));
+                        if (IsOpponentPiece(piece))
+                        {
+                            legalMoves.Add(new moveInfo(currentPos, pos, MoveType.Capture));
+                        }
+
+                        loop = false;
                     }
-                    noPiecesInWay = false;
-                    i = 0;
-                }
-            }
-            noPiecesInWay = true;
-            
-            // checks for moves backwards
-            while (noPiecesInWay == true)
-            {
-                if (board[backwardsOne + i] == Pieces.noPiece)
-                {
-                    legalMoves.Add(new moveInfo(currentPos, backwardsOne + i, MoveType.Normal));
-                    i -= direction;
-                }
-                else
-                {
-                    if (IsOpponentPiece(board[backwardsOne + i]) == true)
-                    {
-                        legalMoves.Add(new moveInfo(currentPos, backwardsOne + i, MoveType.Capture));
-                    }
-                    noPiecesInWay = false;
-                    i = 0;
                 }
             }
         }
-        
+
         public enum MoveType
         {
             Normal,
             Capture
         }
-        public class moveInfo(int currentPos, int targetPos, MoveType moveType)
+        public class moveInfo
         {
-            public int from = currentPos;
-            public int to = targetPos;
-            public MoveType moveType = moveType;
+            public int from;
+            public int to;
+            public MoveType moveType;
+
+            public moveInfo(int from, int to, MoveType moveType)
+            {
+                this.from = from;
+                this.to = to;
+                this.moveType = moveType;
+            }
         }
         
     }

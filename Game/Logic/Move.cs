@@ -5,7 +5,7 @@ namespace Game.Logic
         // move values
         
         
-        //straight movements
+        //straight movements    
         protected static readonly int moveUp = 8;
         protected static readonly int moveDown = -8;
         protected static readonly int moveLeft = -1;

@@ -16,32 +16,50 @@ namespace Game.Logic
 
         void generateLegalMoves(int[] board, int currentPos, int enPassantTargetSquare)
         {
-            int direction = isKnightWhite ? moveUp : moveDown;
-            bool IsOpponentPiece(int piece)
-            {
-                return isKnightWhite ? piece < 0 : piece > 0;
-            }
             
-            int twoUpOneRightTurn = currentPos + direction + direction + moveRight;
-            
-            // always 8 possible mvoes that need checking
-            for (int i = 0; i < 8; i++)
-            {
-            }
+            int[] knightOffSets = { 
+                -17, -15, -10, -6, 6, 10, 15, 17 
+            };
 
-           
+            int currentRow = currentPos / 8;
+            int currentCol = currentPos % 8;
+
+            bool IsOpponentPiece(int piece) => isKnightWhite ? piece < Pieces.noPiece : piece > Pieces.noPiece;
+
+            foreach (int offset in knightOffSets)
+            {
+                int targetPos = currentPos + offset;
+                
+
+                if (board[targetPos] == 0)
+                {
+                    legalMoves.Add(new moveInfo(currentPos, targetPos, MoveType.Normal));
+                }
+                else if (IsOpponentPiece(board[targetPos]))
+                {
+                    legalMoves.Add(new moveInfo(currentPos, targetPos, MoveType.Capture));
+                }
+            }
         }
+
         
         public enum MoveType
         {
             Normal,
             Capture
         }
-        public class moveInfo(int currentPos, int targetPos, MoveType moveType)
+        public class moveInfo
         {
-            public int from = currentPos;
-            public int to = targetPos;
-            public MoveType moveType = moveType;
+            public int from;
+            public int to;
+            public MoveType moveType;
+
+            public moveInfo(int from, int to, MoveType moveType)
+            {
+                this.from = from;
+                this.to = to;
+                this.moveType = moveType;
+            }
         }
         
     }

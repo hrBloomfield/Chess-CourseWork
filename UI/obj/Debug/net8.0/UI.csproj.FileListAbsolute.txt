@@ -145,3 +145,10 @@
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/obj/Debug/net8.0/UI.csproj.Up2Date
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/obj/Debug/net8.0/UI.genruntimeconfig.cache
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/obj/Debug/net8.0/ref/UI.dll
+/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net8.0/DynamicData.dll
+/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net8.0/ReactiveUI.dll
+/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net8.0/Splat.dll
+/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net8.0/Splat.Builder.dll
+/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net8.0/Splat.Core.dll
+/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net8.0/Splat.Logging.dll
+/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net8.0/System.Reactive.dll

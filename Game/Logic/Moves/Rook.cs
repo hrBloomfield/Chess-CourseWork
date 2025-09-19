@@ -13,7 +13,7 @@ namespace Game.Logic
             this.isRookWhite = isRookWhite;
         }
 
-        void generateLegalMoves(int[] board, int currentPos)
+        void GenerateLegalMoves(int[] board, int currentPos)
         {
             legalMoves.Clear();
             int[] directions = { moveUp, moveDown, moveRight, moveLeft };

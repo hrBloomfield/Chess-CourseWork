@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace Game.Logic
 {
@@ -13,7 +12,7 @@ namespace Game.Logic
             this.isPawnWhite = isPawnWhite;
         }
 
-        void generateLegalMoves(int[] board, int currentPos, int enPassantTargetSquare)
+        void GenerateLegalMoves(int[] board, int currentPos, int enPassantTargetSquare)
         {
             int direction = isPawnWhite ? moveUp : moveDown;
             int startRank = isPawnWhite ? 1 : 6;

@@ -23,6 +23,7 @@
 /Users/harry/.nuget/packages/avalonia.win32/11.2.7/lib/net8.0/Avalonia.Win32.dll
 /Users/harry/.nuget/packages/avalonia.x11/11.2.7/lib/net8.0/Avalonia.X11.dll
 /Users/harry/.nuget/packages/communitytoolkit.mvvm/8.2.1/lib/net6.0/CommunityToolkit.Mvvm.dll
+/Users/harry/.nuget/packages/dynamicdata/9.4.1/lib/net8.0/DynamicData.dll
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/Game/obj/Debug/net8.0/ref/Game.dll
 /Users/harry/.nuget/packages/harfbuzzsharp/7.3.0.3/lib/net6.0/HarfBuzzSharp.dll
 /Users/harry/.nuget/packages/microcom.runtime/0.11.0/lib/net5.0/MicroCom.Runtime.dll
@@ -33,7 +34,12 @@
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.8/ref/net8.0/Microsoft.Win32.Registry.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.8/ref/net8.0/mscorlib.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.8/ref/net8.0/netstandard.dll
+/Users/harry/.nuget/packages/reactiveui/21.0.1/lib/net8.0/ReactiveUI.dll
 /Users/harry/.nuget/packages/skiasharp/2.88.9/lib/net6.0/SkiaSharp.dll
+/Users/harry/.nuget/packages/splat.builder/16.1.1/lib/net8.0/Splat.Builder.dll
+/Users/harry/.nuget/packages/splat.core/16.1.1/lib/net8.0/Splat.Core.dll
+/Users/harry/.nuget/packages/splat/16.1.1/lib/net8.0/Splat.dll
+/Users/harry/.nuget/packages/splat.logging/16.1.1/lib/net8.0/Splat.Logging.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.8/ref/net8.0/System.AppContext.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.8/ref/net8.0/System.Buffers.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.8/ref/net8.0/System.Collections.Concurrent.dll
@@ -115,6 +121,7 @@
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.8/ref/net8.0/System.Numerics.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.8/ref/net8.0/System.Numerics.Vectors.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.8/ref/net8.0/System.ObjectModel.dll
+/Users/harry/.nuget/packages/system.reactive/6.0.2/lib/net6.0/System.Reactive.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.8/ref/net8.0/System.Reflection.DispatchProxy.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.8/ref/net8.0/System.Reflection.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/8.0.8/ref/net8.0/System.Reflection.Emit.dll

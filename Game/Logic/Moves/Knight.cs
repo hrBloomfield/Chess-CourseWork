@@ -14,30 +14,28 @@ namespace Game.Logic
             this.isKnightWhite = isKnightWhite;
         }
 
-        void generateLegalMoves(int[] board, int currentPos, int enPassantTargetSquare)
+        void GenerateLegalMoves(int[] board, int currentPos)
         {
             
-            int[] knightOffSets = { 
-                -17, -15, -10, -6, 6, 10, 15, 17 
-            };
+            int[] directions = {-17, -15, -10, -6, 6, 10, 15, 17 };
 
             int currentRow = currentPos / 8;
             int currentCol = currentPos % 8;
 
             bool IsOpponentPiece(int piece) => isKnightWhite ? piece < Pieces.noPiece : piece > Pieces.noPiece;
 
-            foreach (int offset in knightOffSets)
+            foreach (int dir in directions)
             {
-                int targetPos = currentPos + offset;
-                
+                int pos = currentPos + dir;
+                int piece = board[pos];
 
-                if (board[targetPos] == 0)
+                if (board[pos] == Pieces.noPiece)
                 {
-                    legalMoves.Add(new moveInfo(currentPos, targetPos, MoveType.Normal));
+                    legalMoves.Add(new moveInfo(currentPos, pos, MoveType.Normal));
                 }
-                else if (IsOpponentPiece(board[targetPos]))
+                else if (IsOpponentPiece(piece))
                 {
-                    legalMoves.Add(new moveInfo(currentPos, targetPos, MoveType.Capture));
+                    legalMoves.Add(new moveInfo(currentPos, pos, MoveType.Capture));
                 }
             }
         }

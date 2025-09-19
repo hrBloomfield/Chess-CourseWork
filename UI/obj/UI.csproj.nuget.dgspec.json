@@ -130,6 +130,10 @@
             "CommunityToolkit.Mvvm": {
               "target": "Package",
               "version": "[8.2.1, )"
+            },
+            "ReactiveUI": {
+              "target": "Package",
+              "version": "[21.0.1, )"
             }
           },
           "imports": [

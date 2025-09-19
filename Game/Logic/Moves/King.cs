@@ -9,7 +9,7 @@ public class King : Move
             this.isKingWhite = isKingWhite;
     }
 
-    void generateLegalMoves(int[] board, int currentPos)
+    void GenerateLegalMoves(int[] board, int currentPos)
     {
         legalMoves.Clear();
         int[] directions = {moveDownRight, moveDownLeft, moveUpRight, moveUpLeft, moveUp, moveDown, moveRight, moveLeft };
@@ -19,7 +19,23 @@ public class King : Move
             return isKingWhite ? piece < Pieces.noPiece : piece > Pieces.noPiece;
         }
         
+        //castling 
+        if (currentPos + Move.moveLeft == Pieces.noPiece && currentPos + (Move.moveLeft * 2) == Pieces.noPiece && currentPos + (Move.moveLeft * 3) == Pieces.noPiece && currentPos + (Move.moveLeft * 4) == Pieces.rook)
+        {
+            if (currentPos == (isKingWhite ? 61 : 5))
+            {
+                legalMoves.Add(new moveInfo(currentPos, (Move.moveLeft * 3), MoveType.Castle));
+            }
+        }
+        else if (currentPos + Move.moveRight == Pieces.noPiece && currentPos + (Move.moveRight * 2) == Pieces.noPiece && currentPos + (Move.moveRight * 3) == Pieces.rook)
+        {
+            if (currentPos == (isKingWhite ? 61 : 5))
+            {
+                legalMoves.Add(new moveInfo(currentPos, (Move.moveRight * 2), MoveType.Castle));
+            }
+        }
         
+        // normal moves
         foreach (int dir in directions)
         {
             int pos = currentPos + dir;
@@ -42,7 +58,8 @@ public class King : Move
     public enum MoveType
     {
         Normal,
-        Capture
+        Capture,
+        Castle
     }
         
     public class moveInfo

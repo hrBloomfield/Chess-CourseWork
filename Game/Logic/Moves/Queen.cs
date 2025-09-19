@@ -10,7 +10,7 @@ public class Queen : Move
         this.isQueenWhite = isQueenWhite;
     }
 
-    void generateLegalMoves(int[] board, int currentPos)
+    void GenerateLegalMoves(int[] board, int currentPos)
     {
         legalMoves.Clear();
         int[] directions = { moveDownRight, moveDownLeft, moveUpRight, moveUpLeft, moveUp, moveDown, moveRight, moveLeft };

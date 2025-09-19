@@ -16,5 +16,7 @@ namespace Game.Logic
         protected static readonly int moveUpRight = 9;
         protected static readonly int moveDownLeft = -7;
         protected static readonly int moveDownRight = -9;
+        
+        
     }
 }

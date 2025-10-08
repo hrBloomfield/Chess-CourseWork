@@ -19,6 +19,7 @@ namespace Game.Logic
             Normal, 
             Capture, 
             Castle, 
+            //do
             EnPassant, 
             Promotion, 
             DoubleMove, 

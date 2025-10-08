@@ -8,7 +8,7 @@
         x:DataType="vm:MainWindow"
         Icon="/Assets/icon.ico"
         Title="Chess"
-        Background="black">
+        Background="DeepPink">
 
     
     <!-- my code here -->
@@ -18,7 +18,7 @@
               Width="600"
               Height="600">
             <!-- set the background -->
-            <Image Source="avares://UI/Assets/SoftWoodBoard.png"
+            <Image Source="avares://UI/Assets/BrownBoard.png"
                    Stretch="UniformToFill"/>
             
             

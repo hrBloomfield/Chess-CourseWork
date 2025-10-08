@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace Game.Logic
 {
@@ -8,12 +7,13 @@ namespace Game.Logic
     {
         private bool isRookWhite;
         private List<moveInfo> legalMoves = new List<moveInfo>();
+
         public Rook(bool isRookWhite)
         {
             this.isRookWhite = isRookWhite;
         }
 
-        void GenerateLegalMoves(int[] board, int currentPos)
+        public List<moveInfo> GenerateLegalMoves(int[] board, int currentPos)
         {
             legalMoves.Clear();
             int[] directions = { moveUp, moveDown, moveRight, moveLeft };
@@ -22,13 +22,19 @@ namespace Game.Logic
             {
                 return isRookWhite ? piece < Pieces.noPiece : piece > Pieces.noPiece;
             }
-            
-            bool loop = true;
-            while (loop)
+
+
+            foreach (int dir in directions)
             {
-                foreach (int dir in directions)
+                int pos = currentPos + dir;
+                
+                if (pos < 0 || pos >= 64)
+                    continue;
+                int newRow = pos / 8;
+                int newCol = pos % 8;
+                bool loop = true;
+                while (loop == true)
                 {
-                    int pos = currentPos + dir;
                     int piece = board[pos];
                     if (piece == Pieces.noPiece)
                     {
@@ -41,31 +47,12 @@ namespace Game.Logic
                         {
                             legalMoves.Add(new moveInfo(currentPos, pos, MoveType.Capture));
                         }
-
                         loop = false;
                     }
                 }
             }
-        }
 
-        public enum MoveType
-        {
-            Normal,
-            Capture
+            return legalMoves;
         }
-        public class moveInfo
-        {
-            public int from;
-            public int to;
-            public MoveType moveType;
-
-            public moveInfo(int from, int to, MoveType moveType)
-            {
-                this.from = from;
-                this.to = to;
-                this.moveType = moveType;
-            }
-        }
-        
     }
 }

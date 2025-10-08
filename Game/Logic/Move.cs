@@ -1,22 +1,42 @@
+using System.Collections.Generic;
+
 namespace Game.Logic
 {
     public class Move
     {
-        // move values
-        
-        
-        //straight movements    
-        protected static readonly int moveUp = 8;
-        protected static readonly int moveDown = -8;
-        protected static readonly int moveLeft = -1;
-        protected static readonly int moveRight = 1;
-        
-        //diagonal movements
-        protected static readonly int moveUpLeft = 7;
-        protected static readonly int moveUpRight = 9;
-        protected static readonly int moveDownLeft = -7;
-        protected static readonly int moveDownRight = -9;
-        
-        
+        // Directions (8x8 board, 0–63)
+        protected const int moveUp = 8;
+        protected const int moveDown = -8;
+        protected const int moveRight = 1;
+        protected const int moveLeft = -1;
+        protected const int moveUpRight = 9;
+        protected const int moveUpLeft = 7;
+        protected const int moveDownRight = -7;
+        protected const int moveDownLeft = -9;
+
+        public enum MoveType 
+        {
+            Normal, 
+            Capture, 
+            Castle, 
+            EnPassant, 
+            Promotion, 
+            DoubleMove, 
+            PromotionCapture 
+        }
+
+        public class moveInfo
+        {
+            public int from;
+            public int to;
+            public MoveType moveType;
+
+            public moveInfo(int from, int to, MoveType moveType)
+            {
+                this.from = from;
+                this.to = to;
+                this.moveType = moveType;
+            }
+        }
     }
 }

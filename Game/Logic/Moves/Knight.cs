@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace Game.Logic
 {
@@ -8,16 +7,17 @@ namespace Game.Logic
     {
         private bool isKnightWhite;
         private List<moveInfo> legalMoves = new List<moveInfo>();
-        
+
         public Knight(bool isKnightWhite)
         {
             this.isKnightWhite = isKnightWhite;
         }
 
-        void GenerateLegalMoves(int[] board, int currentPos)
+        public List<moveInfo> GenerateLegalMoves(int[] board, int currentPos)
         {
+            legalMoves.Clear();
+            int[] directions = { -17, -15, -10, -6, 6, 10, 15, 17 };
             
-            int[] directions = {-17, -15, -10, -6, 6, 10, 15, 17 };
 
             int currentRow = currentPos / 8;
             int currentCol = currentPos % 8;
@@ -27,6 +27,12 @@ namespace Game.Logic
             foreach (int dir in directions)
             {
                 int pos = currentPos + dir;
+                
+                if (pos < 0 || pos >= 64)
+                    continue;
+                int newRow = pos / 8;
+                int newCol = pos % 8;
+                
                 int piece = board[pos];
 
                 if (board[pos] == Pieces.noPiece)
@@ -38,27 +44,8 @@ namespace Game.Logic
                     legalMoves.Add(new moveInfo(currentPos, pos, MoveType.Capture));
                 }
             }
-        }
 
-        
-        public enum MoveType
-        {
-            Normal,
-            Capture
+            return legalMoves;
         }
-        public class moveInfo
-        {
-            public int from;
-            public int to;
-            public MoveType moveType;
-
-            public moveInfo(int from, int to, MoveType moveType)
-            {
-                this.from = from;
-                this.to = to;
-                this.moveType = moveType;
-            }
-        }
-        
     }
 }

@@ -8,10 +8,13 @@ public class MainGame
         // possible setups in FEN  for testing
         string basicSetUp = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
         string testForStalemate = "3k4/8/8/8/2pp4/8/8/4K3 w KQkq - 0 1 ";
-        string randomPosFromOneOfMyGames = "Q4qk1/6pp/5p2/p7/3Bn3/4P2P/PP3PP1/R5KR w - - 3 29";
+        string randomPosFromOneOfMyGames = "r1bqk2r/pppp1pp1/2n2n2/1B2p2p/1b2PB2/3P1N2/PPP1KPPP/RN1Q3R b kq - 1 6";
         string startFen = " ";
+
+        bool isWhiteMove;
         
         Board newBoard = new Board();
+        
         // TEMPOARY
         Console.WriteLine("Enter a number\n1:Basic Setup\n2:Stalemate Test\n3:Random Pos");
         int userChoiceForFenString = Convert.ToInt32(Console.ReadLine());
@@ -29,16 +32,22 @@ public class MainGame
         }
         
         FenLoader.ReadFenAndLoad(startFen, newBoard);
-        
-        Console.Clear();
-        for (int rank = 7; rank >= 0; rank--)
+
+        while (true)
         {
-            for (int file = 0; file < 8; file++)
+            Console.Clear();
+            for (int rank = 7; rank >= 0; rank--)
             {
-                int squareIndex = rank * 8 + file;
-                Console.Write($"{newBoard.gameBoard[squareIndex],2} ");
+                for (int file = 0; file < 8; file++)
+                {
+                    int squareIndex = rank * 8 + file;
+                    Console.Write($"{newBoard.gameBoard[squareIndex],2} ");
+                }
+
+                Console.WriteLine();
             }
-            Console.WriteLine();
+            MakingMoves.HandleMoves(newBoard);
+            // Game.Logic.Game.GenerateAllLegalMoves('w', newBoard);
         }
     }
 }

@@ -1,22 +1,21 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace Game.Logic
 {
-    public class Bishop  : Move
+    public class Bishop : Move
     {
         private bool isBishopWhite;
         private List<moveInfo> legalMoves = new List<moveInfo>();
-        
+
         public Bishop(bool isBishopWhite)
         {
             this.isBishopWhite = isBishopWhite;
         }
 
-        void generateLegalMoves(int[] board, int currentPos, int enPassantTargetSquare)
+        public List<moveInfo> GenerateLegalMoves(int[] board, int currentPos)
         {
-
+            legalMoves.Clear();
             bool IsOpponentPiece(int piece)
             {
                 return isBishopWhite ? piece < Pieces.noPiece : piece > Pieces.noPiece;
@@ -28,11 +27,16 @@ namespace Game.Logic
             void GenerateLegalMoves(int[] board, int currentPos)
             {
                 legalMoves.Clear();
-                int[] directions = { moveDownRight, moveDownLeft, moveUpRight, moveUpLeft};
+                int[] directions = { moveDownRight, moveDownLeft, moveUpRight, moveUpLeft };
 
                 foreach (int dir in directions)
                 {
                     int pos = currentPos + dir;
+                    
+                    if (pos < 0 || pos >= 64)
+                        continue;
+                    int newRow = pos / 8;
+                    int newCol = pos % 8;
 
                     bool loop = true;
                     while (loop)
@@ -55,27 +59,8 @@ namespace Game.Logic
                     }
                 }
             }
-        }
 
-
-        public enum MoveType
-        {
-            Normal,
-            Capture
+            return legalMoves;
         }
-        public class moveInfo
-        {
-            public int from;
-            public int to;
-            public MoveType moveType;
-
-            public moveInfo(int from, int to, MoveType moveType)
-            {
-                this.from = from;
-                this.to = to;
-                this.moveType = moveType;
-            }
-        }
-        
     }
 }

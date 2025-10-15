@@ -7,5 +7,13 @@ namespace Game.Logic
         {
             gameBoard = new int[64];
         }
+        
+        public Board Clone()
+        {
+            var copy = new Board();
+            copy.gameBoard = (int[])this.gameBoard.Clone();
+            return copy;
+        }
     }
+    
 }

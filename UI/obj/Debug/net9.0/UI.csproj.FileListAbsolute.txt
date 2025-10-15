@@ -78,3 +78,9 @@
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/obj/Debug/net9.0/UI.csproj.Up2Date
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/obj/Debug/net9.0/UI.genruntimeconfig.cache
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/obj/Debug/net9.0/ref/UI.dll
+/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/NAudio.dll
+/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/NAudio.Asio.dll
+/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/NAudio.Core.dll
+/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/NAudio.Midi.dll
+/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/NAudio.Wasapi.dll
+/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/NAudio.WinMM.dll

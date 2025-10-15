@@ -56,7 +56,8 @@ public class Game
     public static bool IsKingInCheck(char sideToMove, Board board)
     {
         bool kingInCheck = false;
-        
+        // if ()
+        // {}
         return kingInCheck;
     }
 

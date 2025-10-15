@@ -19,12 +19,13 @@ public class MakingMoves : MainGame
 
         Console.WriteLine("Move to where?");
         int userMoveChoice = Convert.ToInt32(Console.ReadLine());
+        
+        Move.moveInfo selectedMove = moves.Find(move => move.to == userMoveChoice);
 
         // legality check
-        if (moves.Exists(move => move.to == userMoveChoice))
+        if (selectedMove != null)
         {
-            board.gameBoard[userMoveChoice] = usersPiece;
-            board.gameBoard[userPieceSelection] = 0;
+            ExecuteMove(board, selectedMove);
         }
         else
         {
@@ -34,5 +35,12 @@ public class MakingMoves : MainGame
 
         char sideToMove = 'w';
         // Game.Logic.Game.CheckGameState(sideToMove, board);
+    }
+    
+    public static void ExecuteMove(Board board, Move.moveInfo move)
+    {
+        int movingPiece = board.gameBoard[move.from];
+        board.gameBoard[move.to] = movingPiece;
+        board.gameBoard[move.from] = 0;
     }
 }

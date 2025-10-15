@@ -1,4 +1,5 @@
 using Game.Logic;
+using Game.Logic.Bot;
 using System;
 
 public class MainGame
@@ -47,7 +48,9 @@ public class MainGame
                 Console.WriteLine();
             }
             MakingMoves.HandleMoves(newBoard);
-            // Game.Logic.Game.GenerateAllLegalMoves('w', newBoard);
+            
+            Move.moveInfo bestMove = Kenith.PickBestMove(newBoard,'b');
+            MakingMoves.ExecuteMove(newBoard, bestMove);
         }
     }
 }

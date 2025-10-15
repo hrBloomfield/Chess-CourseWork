@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {
+    "net9.0": {
       "Avalonia/11.2.7": {
         "type": "package",
         "dependencies": {
@@ -359,12 +359,12 @@
           "System.Reactive": "6.0.1"
         },
         "compile": {
-          "lib/net8.0/DynamicData.dll": {
+          "lib/net9.0/DynamicData.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/DynamicData.dll": {
+          "lib/net9.0/DynamicData.dll": {
             "related": ".xml"
           }
         }
@@ -620,12 +620,12 @@
           "System.Reactive": "6.0.2"
         },
         "compile": {
-          "lib/net8.0/ReactiveUI.dll": {
+          "lib/net9.0/ReactiveUI.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/ReactiveUI.dll": {
+          "lib/net9.0/ReactiveUI.dll": {
             "related": ".xml"
           }
         }
@@ -736,12 +736,12 @@
           "System.Reactive": "6.0.2"
         },
         "compile": {
-          "lib/net8.0/Splat.dll": {
+          "lib/net9.0/Splat.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Splat.dll": {
+          "lib/net9.0/Splat.dll": {
             "related": ".xml"
           }
         }
@@ -753,12 +753,12 @@
           "System.Reactive": "6.0.2"
         },
         "compile": {
-          "lib/net8.0/Splat.Builder.dll": {
+          "lib/net9.0/Splat.Builder.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Splat.Builder.dll": {
+          "lib/net9.0/Splat.Builder.dll": {
             "related": ".xml"
           }
         }
@@ -769,12 +769,12 @@
           "System.Reactive": "6.0.2"
         },
         "compile": {
-          "lib/net8.0/Splat.Core.dll": {
+          "lib/net9.0/Splat.Core.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Splat.Core.dll": {
+          "lib/net9.0/Splat.Core.dll": {
             "related": ".xml"
           }
         }
@@ -786,12 +786,12 @@
           "System.Reactive": "6.0.2"
         },
         "compile": {
-          "lib/net8.0/Splat.Logging.dll": {
+          "lib/net9.0/Splat.Logging.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Splat.Logging.dll": {
+          "lib/net9.0/Splat.Logging.dll": {
             "related": ".xml"
           }
         }
@@ -901,7 +901,7 @@
       },
       "Game/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
+        "framework": ".NETCoreApp,Version=v9.0",
         "compile": {
           "bin/placeholder/Game.dll": {}
         },
@@ -2330,7 +2330,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0": [
+    "net9.0": [
       "Avalonia >= 11.2.7",
       "Avalonia.Desktop >= 11.2.7",
       "Avalonia.Diagnostics >= 11.2.7",
@@ -2358,14 +2358,14 @@
         "/Users/harry/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net9.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "projectReferences": {
             "/Users/harry/RiderProjects/chess course work/Chess-CourseWork/Game/Game.csproj": {
               "projectPath": "/Users/harry/RiderProjects/chess course work/Chess-CourseWork/Game/Game.csproj"
@@ -2386,8 +2386,8 @@
       "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
-      "net8.0": {
-        "targetAlias": "net8.0",
+      "net9.0": {
+        "targetAlias": "net9.0",
         "dependencies": {
           "Avalonia": {
             "target": "Package",
@@ -2433,20 +2433,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.20, 8.0.20]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.osx-arm64",
-            "version": "[8.0.20, 8.0.20]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.20, 8.0.20]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"

@@ -17,7 +17,6 @@ namespace Game.Logic
         {
             legalMoves.Clear();
             int[] directions = { -17, -15, -10, -6, 6, 10, 15, 17 };
-            
 
             int currentRow = currentPos / 8;
             int currentCol = currentPos % 8;
@@ -32,6 +31,13 @@ namespace Game.Logic
                     continue;
                 int newRow = pos / 8;
                 int newCol = pos % 8;
+                
+                int dRow = Math.Abs(newRow - currentRow);
+                int dCol = Math.Abs(newCol - currentCol);
+                
+                if (!((dRow == 2 && dCol == 1) || (dRow == 1 && dCol == 2)))
+                    continue;
+
                 
                 int piece = board[pos];
 

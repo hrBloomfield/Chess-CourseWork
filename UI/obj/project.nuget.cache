@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "01YHc+Qj1iI=",
+  "dgSpecHash": "v2vZ8tv8crI=",
   "success": true,
   "projectFilePath": "/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/UI.csproj",
   "expectedPackageFiles": [
@@ -51,10 +51,7 @@
     "/Users/harry/.nuget/packages/system.reactive/6.0.2/system.reactive.6.0.2.nupkg.sha512",
     "/Users/harry/.nuget/packages/system.security.accesscontrol/4.7.0/system.security.accesscontrol.4.7.0.nupkg.sha512",
     "/Users/harry/.nuget/packages/system.security.principal.windows/4.7.0/system.security.principal.windows.4.7.0.nupkg.sha512",
-    "/Users/harry/.nuget/packages/tmds.dbus.protocol/0.20.0/tmds.dbus.protocol.0.20.0.nupkg.sha512",
-    "/Users/harry/.nuget/packages/microsoft.netcore.app.ref/8.0.20/microsoft.netcore.app.ref.8.0.20.nupkg.sha512",
-    "/Users/harry/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.20/microsoft.aspnetcore.app.ref.8.0.20.nupkg.sha512",
-    "/Users/harry/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.20/microsoft.netcore.app.host.osx-arm64.8.0.20.nupkg.sha512"
+    "/Users/harry/.nuget/packages/tmds.dbus.protocol/0.20.0/tmds.dbus.protocol.0.20.0.nupkg.sha512"
   ],
   "logs": []
 }

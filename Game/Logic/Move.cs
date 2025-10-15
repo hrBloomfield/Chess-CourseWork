@@ -4,7 +4,6 @@ namespace Game.Logic
 {
     public class Move
     {
-        // Directions (8x8 board, 0–63)
         protected const int moveUp = 8;
         protected const int moveDown = -8;
         protected const int moveRight = 1;

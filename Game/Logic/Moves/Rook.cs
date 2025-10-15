@@ -23,18 +23,21 @@ namespace Game.Logic
                 return isRookWhite ? piece < Pieces.noPiece : piece > Pieces.noPiece;
             }
 
-
             foreach (int dir in directions)
             {
-                int pos = currentPos + dir;
+                int pos = currentPos;
                 
-                if (pos < 0 || pos >= 64)
-                    continue;
-                int newRow = pos / 8;
-                int newCol = pos % 8;
                 bool loop = true;
                 while (loop == true)
                 {
+                    pos += dir;
+                    
+                    if (pos < 0 || pos >= 64)
+                        continue;
+                
+                    int newRow = pos / 8;
+                    int newCol = pos % 8;
+                    
                     int piece = board[pos];
                     if (piece == Pieces.noPiece)
                     {

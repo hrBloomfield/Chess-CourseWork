@@ -17,8 +17,7 @@ namespace Game.Logic
         public List<moveInfo> GenerateLegalMoves(int[] board, int currentPos)
         {
             legalMoves.Clear();
-            int[] directions =
-                { moveDownRight, moveDownLeft, moveUpRight, moveUpLeft, moveUp, moveDown, moveRight, moveLeft };
+            int[] directions = { moveDownRight, moveDownLeft, moveUpRight, moveUpLeft, moveUp, moveDown, moveRight, moveLeft };
 
             bool IsOpponentPiece(int piece)
             {
@@ -31,6 +30,11 @@ namespace Game.Logic
                 foreach (int dir in directions)
                 {
                     int pos = currentPos + dir;
+                    
+                    if (pos < 0 || pos >= 64)
+                        continue;
+                    int newRow = pos / 8;
+                    int newCol = pos % 8;
                     
                     int piece = board[pos];
                     if (piece == Pieces.noPiece)

@@ -31,16 +31,9 @@
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/Avalonia.Win32.dll
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/Avalonia.X11.dll
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/CommunityToolkit.Mvvm.dll
-/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/DynamicData.dll
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/HarfBuzzSharp.dll
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/MicroCom.Runtime.dll
-/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/ReactiveUI.dll
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/SkiaSharp.dll
-/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/Splat.dll
-/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/Splat.Builder.dll
-/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/Splat.Core.dll
-/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/Splat.Logging.dll
-/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/System.Reactive.dll
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/Tmds.DBus.Protocol.dll
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/runtimes/win-arm64/native/av_libglesv2.dll
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/runtimes/win-x64/native/av_libglesv2.dll
@@ -78,9 +71,3 @@
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/obj/Debug/net9.0/UI.csproj.Up2Date
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/obj/Debug/net9.0/UI.genruntimeconfig.cache
 /Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/obj/Debug/net9.0/ref/UI.dll
-/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/NAudio.dll
-/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/NAudio.Asio.dll
-/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/NAudio.Core.dll
-/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/NAudio.Midi.dll
-/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/NAudio.Wasapi.dll
-/Users/harry/RiderProjects/chess course work/Chess-CourseWork/UI/bin/Debug/net9.0/NAudio.WinMM.dll

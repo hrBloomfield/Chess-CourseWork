@@ -1,25 +1,14 @@
-using System;
-using Game.Logic;
-
-public class PieceViewModel
+namespace UI.Models
 {
-    private string PieceCodeToImage(int code)
+    public class PieceViewModel
     {
-        return code switch
-        {
-            1 => "PawnW.png",
-            -1 => "PawnB.png",
-            5 => "RookW.png",
-            -5 => "RookB.png",
-            2 => "KnightW.png",
-            -2 => "KnightB.png",
-            3 => "BishopW.png",
-            -3 => "BishopB.png",
-            4 => "QueenW.png",
-            -4 => "QueenB.png",
-            6 => "KingW.png",
-            -6 => "KingB.png",
-            0 => null,
-        };
+        public string Type { get; set; }    // "Pawn", "Rook", ...
+        public string Color { get; set; }   // "White" or "Black"
+        public int Row { get; set; }        // 0 = top row (rank 8)
+        public int Column { get; set; }     // 0 = file a
+        
+        public double X => Column * 75.0;
+        public double Y => Row * 75.0; 
+        public string ImagePath => $"avares://UI/Assets/{Type}{(Color == "White" ? "B" : "W")}.png";
     }
 }

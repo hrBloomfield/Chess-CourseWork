@@ -34,5 +34,6 @@ public static class MovePieces
         }
 
         return legalMoves;
+        
     }
 }

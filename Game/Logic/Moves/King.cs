@@ -13,7 +13,7 @@ namespace Game.Logic
             this.isKingWhite = isKingWhite;
         }
 
-        public List<moveInfo> GenerateLegalMoves(int[] board, int currentPos)
+       public List<moveInfo> GenerateLegalMoves(int[] board, int currentPos)
         {
             legalMoves.Clear();
             int[] directions =
@@ -24,40 +24,55 @@ namespace Game.Logic
                 return isKingWhite ? piece < Pieces.noPiece : piece > Pieces.noPiece;
             }
 
-            //castling 
-            if (currentPos + Move.moveLeft == Pieces.noPiece && currentPos + (Move.moveLeft * 2) == Pieces.noPiece &&
-                currentPos + (Move.moveLeft * 3) == Pieces.noPiece && currentPos + (Move.moveLeft * 4) == Pieces.rook)
+            // castling
+            int whiteKingStart = 4;
+            int blackKingStart = 60;
+
+            if (currentPos == (isKingWhite ? whiteKingStart : blackKingStart))
             {
-                if (currentPos == (isKingWhite ? 61 : 5))
+                // king-side castling
+                int kSide1 = currentPos + moveRight;
+                int kSide2 = currentPos + moveRight * 2;
+                int kRookSquare = currentPos + moveRight * 3;
+                if (kSide1 >= 0 && kSide2 < 64 && kRookSquare < 64)
                 {
-                    legalMoves.Add(new moveInfo(currentPos, (Move.moveLeft * 3), MoveType.Castle));
+                    if (board[kSide1] == Pieces.noPiece && board[kSide2] == Pieces.noPiece && Math.Abs(board[kRookSquare]) == Pieces.rook)
+                    {
+                        legalMoves.Add(new moveInfo(currentPos, kSide2, MoveType.Castle));
+                    }
                 }
-            }
-            else if (currentPos + Move.moveRight == Pieces.noPiece &&
-                     currentPos + (Move.moveRight * 2) == Pieces.noPiece &&
-                     currentPos + (Move.moveRight * 3) == Pieces.rook)
-            {
-                if (currentPos == (isKingWhite ? 61 : 5))
+
+                // queen-side castling
+                int qSide1 = currentPos + moveLeft;
+                int qSide2 = currentPos + moveLeft * 2;
+                int qSide3 = currentPos + moveLeft * 3;
+                int qRookSquare = currentPos + moveLeft * 4;
+                if (qSide3 >= 0 && qRookSquare >= 0)
                 {
-                    legalMoves.Add(new moveInfo(currentPos, (Move.moveRight * 2), MoveType.Castle));
+                    if (board[qSide1] == Pieces.noPiece && board[qSide2] == Pieces.noPiece && board[qSide3] == Pieces.noPiece && Math.Abs(board[qRookSquare]) == Pieces.rook)
+                    {
+                        legalMoves.Add(new moveInfo(currentPos, qSide2, MoveType.Castle));
+                    }
                 }
             }
 
-            // normal moves
+            // normal king moves
             foreach (int dir in directions)
             {
                 int pos = currentPos + dir;
-                
-                if (pos < 0 || pos >= 64)
-                    continue;
+
+                if (pos < 0 || pos >= 64) continue;
+
+                int currentRow = currentPos / 8;
                 int newRow = pos / 8;
-                int newCol = pos % 8;
-                
+
+                // prevent horizontal wrap
+                if (Math.Abs(newRow - currentRow) > 1 && (dir == moveRight || dir == moveLeft)) continue;
+
                 int piece = board[pos];
                 if (piece == Pieces.noPiece)
                 {
                     legalMoves.Add(new moveInfo(currentPos, pos, MoveType.Normal));
-                    pos += dir;
                 }
                 else
                 {
@@ -70,5 +85,6 @@ namespace Game.Logic
 
             return legalMoves;
         }
+
     }
 }

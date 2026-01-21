@@ -11,7 +11,7 @@ namespace UI.ViewModels
 
         public MainWindowViewModel()
         {
-            string startingFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
+            string startingFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
             LoadFromFen(startingFen);
             Console.WriteLine($"Loaded {Pieces.Count} pieces from VM.");
         }
@@ -20,32 +20,23 @@ namespace UI.ViewModels
         {
             var board = new Board();
             FenLoader.ReadFenAndLoad(fen, board);
-
             Pieces.Clear();
 
             for (int i = 0; i < 64; i++)
             {
                 int value = board.gameBoard[i];
                 if (value == 0) continue;
-
-                var (type, color) = GetPieceInfo(value);
-
+                
+                var (type, colour) = GetPieceInfo(value);
                 int row = i / 8;
                 int col = i % 8;
-
-                Pieces.Add(new PieceViewModel
-                {
-                    Type = type,
-                    Color = color,
-                    Row = row,
-                    Column = col
-                });
+                Pieces.Add(new PieceViewModel{ Type = type, Colour = colour, Row = row, Column = col });
             }
         }
 
-        private (string Type, string Color) GetPieceInfo(int value)
+        private (string Type, string colour) GetPieceInfo(int value)
         {
-            string color = value > 0 ? "White" : "Black";
+            string colour = value > 0 ? "White" : "Black";
             int abs = System.Math.Abs(value);
 
             string type = abs switch
@@ -59,7 +50,7 @@ namespace UI.ViewModels
                 _ => "Unknown"
             };
 
-            return (type, color);
+            return (type, colour);
         }
     }
 }

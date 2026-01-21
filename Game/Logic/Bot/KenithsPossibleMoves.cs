@@ -10,4 +10,5 @@ public class KenithsPossibleMoves
     {
         moves.Add(move);
     }
+    
 }

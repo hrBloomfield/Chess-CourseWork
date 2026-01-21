@@ -18,10 +18,9 @@ namespace Game.Logic
             Normal, 
             Capture, 
             Castle, 
-            //do
             EnPassant, 
             Promotion, 
-            DoubleMove, 
+            DoubleMove,
             PromotionCapture 
         }
 
@@ -38,5 +37,39 @@ namespace Game.Logic
                 this.moveType = moveType;
             }
         }
+        
+        protected bool IsOpponent(int piece, bool isWhite) => isWhite ? piece < 0 : piece > 0;
+
+        protected List<moveInfo> SlideMoves(int[] board, int currentPos, int[] directions, bool isWhite)
+        {
+            var moves = new List<moveInfo>();
+
+            foreach (var dir in directions)
+            {
+                int pos = currentPos;
+                int next = pos + dir;
+
+                while (next >= 0 && next < 64 &&
+                       Math.Abs((next % 8) - (pos % 8)) <= 1 && Math.Abs((next / 8) - (pos / 8)) <= 1)
+                {
+                    int piece = board[next];
+                    if (piece == Pieces.noPiece)
+                    {
+                        moves.Add(new moveInfo(currentPos, next, MoveType.Normal));
+                    }
+                    else
+                    {
+                        if (IsOpponent(piece, isWhite))
+                            moves.Add(new moveInfo(currentPos, next, MoveType.Capture));
+                        break;
+                    }
+                    pos = next;
+                    next += dir;
+                }
+            }
+
+            return moves;
+        }
+
     }
 }

@@ -12,7 +12,7 @@
         <Grid Width="600" Height="600">
 
             <!-- Board background (this already worked for you) -->
-            <Image Source="avares://UI/Assets/GreenBoard.png"
+            <Image Source="avares://UI/Assets/SoftWoodBoard.png"
                    Stretch="UniformToFill"/>
 
             <!-- Named canvas where images will be added programmatically -->

@@ -42,6 +42,7 @@ namespace Game.Logic
                     board.gameBoard[squareIndex] = piece * pieceColour;
 
                     file++;
+                    
                 }
             }
         }

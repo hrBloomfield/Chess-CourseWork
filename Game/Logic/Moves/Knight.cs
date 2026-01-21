@@ -52,6 +52,7 @@ namespace Game.Logic
             }
 
             return legalMoves;
+            
         }
     }
 }

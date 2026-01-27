@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace Game.Logic
 {
@@ -47,8 +46,7 @@ namespace Game.Logic
                 bool isWhitePiece = piece > 0;
                 if ((sideToMove == 'w' && !isWhitePiece) || (sideToMove == 'b' && isWhitePiece))
                     continue;
-
-                // Only include moves that don't leave king in check
+                
                 List<Move.moveInfo> legalMoves = GetLegalMovesForPiece(sideToMove, board, i);
                 allMoves.AddRange(legalMoves);
             }

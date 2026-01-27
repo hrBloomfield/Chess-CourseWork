@@ -1,9 +1,12 @@
-namespace Game.Logic;
+using System;
 
-public class Audio
+namespace Game.Logic
 {
-    public void PlayPieceTakeSound(string soundFilePath)
+    public class Audio
     {
-        
+        public void PlayPieceTakeSound(string soundFilePath)
+        {
+
+        }
     }
 }

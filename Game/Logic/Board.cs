@@ -1,20 +1,25 @@
+using System;
+using Game.Logic.Bot;
+
 namespace Game.Logic
 {
     public class Board
     {
+        public ulong Hash;
         public int[] gameBoard;
+
         public Board()
         {
             gameBoard = new int[64];
         }
-        
+
         public Board Clone()
         {
             var copy = new Board();
             copy.gameBoard = (int[])this.gameBoard.Clone();
             return copy;
         }
-        
+
         public void PrintBoard(char userSide)
         {
             if (userSide == 'w')
@@ -26,6 +31,7 @@ namespace Game.Logic
                         int index = row * 8 + col;
                         Console.Write($"{gameBoard[index],3}");
                     }
+
                     Console.WriteLine();
                 }
             }
@@ -38,6 +44,7 @@ namespace Game.Logic
                         int index = row * 8 + col;
                         Console.Write($"{gameBoard[index],3}");
                     }
+
                     Console.WriteLine();
                 }
             }
@@ -48,7 +55,30 @@ namespace Game.Logic
             }
         }
 
+        public bool IsStartingPosition()
+        {
+            int[] startingBoard =
+            {
+                Pieces.rook, Pieces.knight, Pieces.bishop, Pieces.queen, Pieces.king, Pieces.bishop, Pieces.knight,
+                Pieces.rook,
+                Pieces.pawn, Pieces.pawn, Pieces.pawn, Pieces.pawn, Pieces.pawn, Pieces.pawn, Pieces.pawn, Pieces.pawn,
+                0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, 0, 0, 0, 0, 0,
+                -Pieces.pawn, -Pieces.pawn, -Pieces.pawn, -Pieces.pawn, -Pieces.pawn, -Pieces.pawn, -Pieces.pawn,
+                -Pieces.pawn,
+                -Pieces.rook, -Pieces.knight, -Pieces.bishop, -Pieces.queen, -Pieces.king, -Pieces.bishop,
+                -Pieces.knight, -Pieces.rook
+            };
 
+            for (int i = 0; i < 64; i++)
+            {
+                if (gameBoard[i] != startingBoard[i])
+                    return false;
+            }
+
+            return true;
+        }
     }
-    
 }

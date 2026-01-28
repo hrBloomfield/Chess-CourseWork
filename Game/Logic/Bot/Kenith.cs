@@ -7,16 +7,14 @@ namespace Game.Logic.Bot
 {
     public class Kenith
     {
-        private const int MAX_DEPTH = 6;
+        private const int MAX_DEPTH = 4;
         private const int CHECKMATE_SCORE = 100000;
         private const int STALEMATE_SCORE = 0;
-
-        // Transposition table for storing previously evaluated positions
+        
         private static Dictionary<ulong, TranspositionEntry> transpositionTable = new Dictionary<ulong, TranspositionEntry>();
-        private const int MAX_TT_SIZE = 1000000; // Limit table size to prevent memory issues
-
-        // History heuristic for move ordering
-        private static int[,] historyTable = new int[64, 64]; // from, to
+        private const int MAX_TT_SIZE = 1000000;
+        
+        private static int[,] historyTable = new int[64, 64];
 
         private class TranspositionEntry
         {
@@ -138,7 +136,7 @@ namespace Game.Logic.Bot
                     int score = -Minimax(tempBoard, searchDepth - 1, -beta, -alpha, opponentSide);
                     
                     // DEBUG: displays useful progress
-                    Console.WriteLine($"depth = {searchDepth,3} | score = {score,3} | move = {move.from} -> {move.to}");
+                    // Console.WriteLine($"depth = {searchDepth,3} | score = {score,3} | move = {move.from} -> {move.to}");
 
                     if (score > bestScore)
                     {

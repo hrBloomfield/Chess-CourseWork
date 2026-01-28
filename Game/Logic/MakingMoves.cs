@@ -1,7 +1,7 @@
 using Game.Logic;
 using Game.Logic.Bot;
 using System;
-
+using System.Threading;
 
 namespace Game.Logic
 {
@@ -9,25 +9,81 @@ namespace Game.Logic
     {
         public static char sideToMove = 'w';
         private static int enPassantSquare = -1;
-        private static bool kingHasCastled = false;
+        private static bool whiteKingMoved = false;
+        private static bool blackKingMoved = false;
+        private static bool whiteKingsideRookMoved = false;
+        private static bool whiteQueensideRookMoved = false;
+        private static bool blackKingsideRookMoved = false;
+        private static bool blackQueensideRookMoved = false;
+        
+        // Timer support
+        private static Timer gameTimer = null;
+        private static bool useTimer = false;
+
+        public static void ResetGameState()
+        {
+            sideToMove = 'w';
+            enPassantSquare = -1;
+            whiteKingMoved = false;
+            blackKingMoved = false;
+            whiteKingsideRookMoved = false;
+            whiteQueensideRookMoved = false;
+            blackKingsideRookMoved = false;
+            blackQueensideRookMoved = false;
+            Game.ResetGameHistory();
+        }
+
+        public static void InitializeTimer(bool enableTimer, int timePerSideInSeconds = 600)
+        {
+            useTimer = enableTimer;
+            if (useTimer)
+            {
+                gameTimer = new Timer(timePerSideInSeconds);
+                gameTimer.OnTimeExpired += OnTimerExpired;
+                Console.WriteLine($"Timer enabled: {timePerSideInSeconds / 60} minutes per side");
+            }
+        }
+
+        private static void OnTimerExpired(char side)
+        {
+            Console.Clear();
+            Console.WriteLine($"\n{(side == 'w' ? "White" : "Black")}'s time has expired!");
+            Console.WriteLine($"{(side == 'w' ? "Black" : "White")} wins on time!");
+            Console.WriteLine("\nPress any key to exit...");
+            Console.ReadKey();
+            Environment.Exit(0);
+        }
 
         public static void HandleMoves(Board board)
         {
+            if (useTimer && gameTimer != null)
+            {
+                gameTimer.DisplayTimers();
+                Console.WriteLine();
+            }
+
             Console.WriteLine($"It is {(sideToMove == 'w' ? "White" : "Black")}'s turn.");
 
             string result = Game.CheckGameState(sideToMove, board);
             if (result != "null")
             {
+                if (useTimer && gameTimer != null)
+                    gameTimer.Stop();
+                    
                 Console.WriteLine($"Game over: {result}");
                 Console.ReadKey();
                 return;
             }
 
-            // Determine if bot should move
+            if (useTimer && gameTimer != null)
+            {
+                gameTimer.Start(sideToMove);
+            }
+
             bool isBotTurn = false;
-            if (userGameMode == "1") // PvB
+            if (userGameMode == "1")
                 isBotTurn = (userSide == 'w' && sideToMove == 'b') || (userSide == 'b' && sideToMove == 'w');
-            else if (userGameMode == "3") // BvB
+            else if (userGameMode == "3")
                 isBotTurn = true;
 
             if (isBotTurn)
@@ -49,9 +105,17 @@ namespace Game.Logic
                         ExecuteMove(board, botMove);
                     }
 
+                    if (useTimer && gameTimer != null)
+                    {
+                        gameTimer.Stop();
+                    }
+
                     sideToMove = sideToMove == 'w' ? 'b' : 'w';
-                    // Console.WriteLine("Press any key to continue...");
-                    // Console.ReadKey();
+                    
+                    if (userGameMode == "3")
+                    {
+                        Thread.Sleep(500);
+                    }
                 }
 
                 return;
@@ -59,7 +123,9 @@ namespace Game.Logic
 
             // Human player's turn
             Console.WriteLine("Piece Coordinate to move: ");
-            if (!int.TryParse(Console.ReadLine(), out int userPieceSelection) || userPieceSelection < 0 ||
+            
+            int userPieceSelection;
+            if (!int.TryParse(Console.ReadLine(), out userPieceSelection) || userPieceSelection < 0 ||
                 userPieceSelection >= 64)
             {
                 Console.WriteLine("Invalid square index.");
@@ -106,6 +172,11 @@ namespace Game.Logic
                     else
                         ExecuteMove(board, selectedMove);
 
+                    if (useTimer && gameTimer != null)
+                    {
+                        gameTimer.Stop();
+                    }
+
                     sideToMove = sideToMove == 'w' ? 'b' : 'w';
                     board.PrintBoard(userSide);
                 }
@@ -126,6 +197,27 @@ namespace Game.Logic
         public static void ExecuteMove(Board board, Move.moveInfo move)
         {
             int movingPiece = board.gameBoard[move.from];
+            int capturedPiece = board.gameBoard[move.to];
+            bool isPawnMove = Math.Abs(movingPiece) == Pieces.pawn;
+            bool isCapture = capturedPiece != Pieces.noPiece || move.moveType == Move.MoveType.EnPassant;
+
+            // Track king and rook moves for castling rights
+            if (Math.Abs(movingPiece) == Pieces.king)
+            {
+                if (PieceHelpers.IsWhite(movingPiece))
+                    whiteKingMoved = true;
+                else
+                    blackKingMoved = true;
+            }
+            else if (Math.Abs(movingPiece) == Pieces.rook)
+            {
+                // White rooks
+                if (move.from == 0) whiteQueensideRookMoved = true;
+                else if (move.from == 7) whiteKingsideRookMoved = true;
+                // Black rooks
+                else if (move.from == 56) blackQueensideRookMoved = true;
+                else if (move.from == 63) blackKingsideRookMoved = true;
+            }
 
             // Clear old en passant marker
             if (enPassantSquare != -1)
@@ -134,15 +226,13 @@ namespace Game.Logic
                 enPassantSquare = -1;
             }
 
-            // ---------------- CASTLING ----------------
-            if (move.moveType == Move.MoveType.Castle && kingHasCastled == false)
+            // Handle castling
+            if (move.moveType == Move.MoveType.Castle)
             {
                 bool kingSide = move.to > move.from;
 
-                // move king
                 board.gameBoard[move.to] = movingPiece;
                 board.gameBoard[move.from] = Pieces.noPiece;
-                kingHasCastled = true;
 
                 if (kingSide)
                 {
@@ -161,11 +251,11 @@ namespace Game.Logic
                     board.gameBoard[rookFrom] = Pieces.noPiece;
                 }
 
+                Game.RecordMove(board, move, isPawnMove, isCapture);
                 return;
             }
-            // ------------------------------------------
 
-            // En passant capture
+            // Handle en passant
             if (move.moveType == Move.MoveType.EnPassant)
             {
                 int capturedPawnSquare = PieceHelpers.IsWhite(movingPiece) ? move.to - 8 : move.to + 8;
@@ -185,6 +275,9 @@ namespace Game.Logic
                     ? Pieces.enPassantMarker
                     : Pieces.black * Pieces.enPassantMarker;
             }
+
+            // Record move for game history (50-move rule and repetition detection)
+            Game.RecordMove(board, move, isPawnMove, isCapture);
         }
 
         public static void PromotePawn(Board board, Move.moveInfo move)

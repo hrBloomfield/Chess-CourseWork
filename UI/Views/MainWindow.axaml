@@ -3,23 +3,12 @@
         xmlns:vm="using:UI.ViewModels"
         x:Class="UI.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Width="600" Height="600"
+        Width="800" Height="650"
         Icon="/Assets/icon.ico"
-        Title="Chess"
-        Background="Black">
+        Title="Chess Game"
+        Background="#2C2C2C">
 
-    <Viewbox Stretch="Uniform">
-        <Grid Width="600" Height="600">
+    <Grid>
+    </Grid>
 
-            <!-- Board background (this already worked for you) -->
-            <Image Source="avares://UI/Assets/SoftWoodBoard.png"
-                   Stretch="UniformToFill"/>
-
-            <!-- Named canvas where images will be added programmatically -->
-            <Canvas x:Name="PiecesCanvas"
-                    Width="600"
-                    Height="600"
-                    IsHitTestVisible="False"/>
-        </Grid>
-    </Viewbox>
 </Window>
